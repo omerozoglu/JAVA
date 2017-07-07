@@ -1,0 +1,25 @@
+
+import java.util.Random; //random Kütüphanesi
+
+public class algoritma {
+
+	static String random; 
+	static int top=0;
+	static Random rnd;
+  
+	static String[] dizi = new String[4]; //4 vermemin sebebi random un 0 ile 4 basamaklı bir sayı arasında olması
+	
+  public static void main(String[] args) {
+  
+	rnd = new Random();
+  
+	random=String.valueOf(rnd.nextInt(1000));//sub string için string bir değişkene atıyorum
+	System.out.println(random);
+
+	for(int i=0; i<random.length();i++) {
+		dizi[i]=random.substring(i,i+1);//substring ile rakamları diziye aktarıyorum
+		top=top+ Integer.parseInt(dizi[i]); //toplama işlemi
+	}
+	System.out.println(top ); //ekrana bastık
+  }
+}
