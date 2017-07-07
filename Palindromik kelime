@@ -1,0 +1,44 @@
+    static Scanner scan;
+    static String kelime,terskelime;
+    static char[] harfler;
+    static char[] tersharf;
+    static int a = 1,y;
+    public static void main(String[] args) {    
+scan = new Scanner(System.in);
+System.out.println("Kelime Gir => ");
+              kelime=scan.nextLine();
+        
+        harfler=kelime.toCharArray();
+ // bu satırda harfler dizisine girilen kelimeyi char dizisi olarak atıyorum       
+        tersharf=new char[harfler.length]; 
+//bu satır da tersharf dizisinin eleman sayısını belirliyoruz not: bu satır olmadan hata veriyor :)
+     
+   for(int i = 0; i<harfler.length; i++) {
+  /*bu for döngüsünde tersharflerin 0. indexinden başlayarak, harflerin son indexisini eksilterek  
+  *girilen harflerin  indexlerini değiştirip atıyorum.
+*/
+            tersharf[i]=harfler[harfler.length-a];
+            a++;
+         }        
+
+   terskelime=String.valueOf(tersharf);
+ //burada char disizini ekrana basabilmek için tekrar stringe çeviriyorum
+        a=0;
+        for(y =0;y<harfler.length;y++) {
+            //bu for döngüsünde kurduğum mantık tersharflerin index i ile harflerin indexinde bulunan //harflerin karşılaştırıp a değerini artırıyorum
+            if(tersharf[y]==harfler[y]) {
+                a++;
+            }
+        }    
+        if(y==a) {
+//eğer y ile a eşit ise kelimeler palindromik kelimedir.
+            System.out.println("Ters Kelime =>"+terskelime);    
+            System.out.println("Kelime =>"+kelime);    
+            System.out.println("Aynı </>");
+        }
+        else {
+            System.out.println("Ters Kelime =>"+terskelime);    
+            System.out.println("Kelime =>"+kelime);
+            System.out.println("Farklı <!>");
+        }
+    }
